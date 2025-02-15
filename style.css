@@ -6,6 +6,65 @@ h1 {
     text-align: center;
 }
 
+dialog {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 1px solid #999;
+    border-radius: 5px;
+    width: clamp(300px, 50%, 500px);
+    padding: 1rem;
+}
+
+dialog h1 {
+    font-weight: 500;
+}
+
+.inputs-section div {
+    text-align: center;
+}
+
+.inputs-section label:not(.checkbox-label) {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.inputs-section input:not(.checkbox-input) {
+    text-align: center;
+    width: 50%;
+    padding: 0.25rem;
+    margin-bottom: 1rem;
+}
+
+.checkbox-input {
+    margin-bottom: 2rem;
+}
+
+.buttons-section {
+    text-align: center;
+}
+
+button {
+    font-weight: 500;
+    background-color: #175676;
+    color: #FFF;
+    border: none;
+    border-radius: 5px;
+    padding: 0.75rem;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.submit-button {
+    margin-right: 2rem;
+}
+
+.cancel-button {
+    background-color: #D62839;
+}
+
 table {
     width: 100%;
     text-align: center;
