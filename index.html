@@ -11,7 +11,7 @@
     <h1>Vinson's Library</h1>
 
     <button type="button" class="add-book-button">Add Book</button>
-    <dialog>
+    <dialog class="main-dialog">
         <form method="dialog">
             <h1>Add a Book</h1>
             <section class="inputs-section">
@@ -39,14 +39,21 @@
         </form>
     </dialog>
 
+    <dialog class="delete-dialog">
+        <p>Delete this book from the library?</p>
+        <button type="button" class="delete-button">Delete</button>
+        <button type="button" class="delete-cancel-button">Cancel</button>
+    </dialog>
+
     <table>
-        <caption>My Personal Library</caption>
+        <caption>My Personal Library, a gift to you</caption>
 
         <thead>
             <th scope="col">Title</th>
             <th scope="col">Author</th>
             <th scope="col">Pages</th>
             <th scope="col">Status</th>
+            <th scope="col">Delete</th>
         </thead>
         <tbody>
         </tbody>

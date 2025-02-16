@@ -1,4 +1,4 @@
-const myLibrary = [];
+let myLibrary = [];
 
 function Book(title, author, pageCount, readStatus) {
     this.title = title;
@@ -22,8 +22,55 @@ function displayBooks() {
             tableRow.appendChild(tableData);
         }
 
+        const deleteCell = document.createElement('td');
+        deleteCell.classList.add('delete-td');
+        const deleteSVG = document.createElement('img');
+        deleteSVG.src = './assets/delete-outline.svg';
+        deleteSVG.classList.add('table-svg');
+        deleteSVG.setAttribute('alt', 'Delete Icon');
+        deleteSVG.setAttribute('width', '24px');
+
+        deleteCell.appendChild(deleteSVG);
+        tableRow.appendChild(deleteCell);
+
+        deleteCell.addEventListener('click', deleteCellClicked);
+
         tableBody.appendChild(tableRow);
     }
+}
+
+function deleteCellClicked(event) {
+    const bookTitle = event.currentTarget.parentNode.firstChild.textContent;
+    // Add hidden input for reference to book
+    const reference = document.createElement('input');
+    reference.classList.add('reference-input');
+    reference.setAttribute('type', 'hidden');
+    reference.setAttribute('value', bookTitle);
+
+    deleteDialog.appendChild(reference);
+    deleteDialog.showModal();
+}
+
+function deleteCancel() {
+    hideDeleteDialog();
+}
+
+function deleteBook() {
+    const reference = document.querySelector('.reference-input');
+    
+    const newLibrary = myLibrary.filter((book) => {
+        return !(book.title === reference.value);
+    });
+    myLibrary = newLibrary;
+
+    clearDisplay();
+    displayBooks();
+    hideDeleteDialog();
+}
+
+function hideDeleteDialog() {
+    deleteDialog.removeChild(document.querySelector('.reference-input'));
+    deleteDialog.close();
 }
 
 function clearDisplay() {
@@ -72,7 +119,14 @@ function cancelClicked() {
 
 const tableBody = document.querySelector('tbody');
 
-const dialog = document.querySelector('dialog');
+const dialog = document.querySelector('.main-dialog');
+
+const deleteDialog = document.querySelector('.delete-dialog');
+const deleteButton = document.querySelector('.delete-button');
+const deleteCancelButton = document.querySelector('.delete-cancel-button');
+deleteButton.addEventListener('click', deleteBook);
+deleteCancelButton.addEventListener('click', deleteCancel);
+
 const addBookButton = document.querySelector('.add-book-button');
 const cancelButton = document.querySelector('.cancel-button');
 addBookButton.addEventListener('click', showModal);

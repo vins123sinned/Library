@@ -24,6 +24,22 @@ dialog h1 {
     font-weight: 500;
 }
 
+.delete-dialog {
+    text-align: center;
+}
+
+.delete-dialog button {
+    width: 7rem;
+}
+
+.delete-button {
+    margin-right: 3rem;
+}
+
+.delete-cancel-button {
+    background-color: #D62839;
+}
+
 .inputs-section div {
     text-align: center;
 }
@@ -87,4 +103,12 @@ td, th {
 
 tbody tr:nth-child(odd) {
     background-color: #EEE;
+}
+
+.delete-td:hover {
+    cursor: pointer;
+}
+
+.table-svg {
+    filter: invert(17%) sepia(86%) saturate(2276%) hue-rotate(336deg) brightness(119%) contrast(96%);
 }
