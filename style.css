@@ -88,6 +88,7 @@ table {
     text-align: center;
     border: 1px solid #999;
     border-collapse: collapse;
+    margin-bottom: 2rem;
 }
 
 caption {
@@ -110,4 +111,10 @@ tbody tr:nth-child(odd) {
 
 .table-svg {
     filter: invert(17%) sepia(86%) saturate(2276%) hue-rotate(336deg) brightness(119%) contrast(96%);
+}
+
+.add-book-button {
+    display: block;
+    width: 10rem;
+    margin: 0 auto;
 }
