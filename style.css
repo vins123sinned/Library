@@ -6,6 +6,10 @@ h1 {
     text-align: center;
 }
 
+::backdrop {
+    background-color: rgb(0, 0, 0, 0.9);
+}
+
 dialog {
     position: absolute;
     top: 50%;
