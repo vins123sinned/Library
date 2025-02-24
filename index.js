@@ -1,17 +1,19 @@
 let myLibrary = [];
 
-function Book(title, author, pageCount, readStatus) {
-    this.title = title;
-    this.author = author;
-    this.pageCount = pageCount;
-    this.readStatus = readStatus ? 'read' : 'not read yet';
-}
+class Book {
+    constructor(title, author, pageCount, readStatus) {
+        this.title = title;
+        this.author = author;
+        this.pageCount = pageCount;
+        this.readStatus = readStatus ? 'read' : 'not read yet';
+    }
 
-Book.prototype.changeReadStatus = function () {
-    if (this.readStatus === 'read') {
-        this.readStatus = 'not read yet';
-    } else {
-        this.readStatus = 'read';
+    changeReadStatus() {
+        if (this.readStatus === 'read') {
+            this.readStatus = 'not read yet';
+        } else {
+            this.readStatus = 'read';
+        }
     }
 }
 
