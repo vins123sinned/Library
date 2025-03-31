@@ -11,20 +11,23 @@
     <h1>Vinson's Library</h1>
 
     <dialog class="main-dialog">
-        <form method="dialog">
+        <form method="dialog" novalidate>
             <h1>Add a Book</h1>
             <section class="inputs-section">
                 <div>
                     <label for="title">Title</label>
                     <input type="text" id="title" name="title" required>
+                    <span class="title-error error-message" aria-live="polite"></span>
                 </div>
                 <div>
                     <label for="author">Author</label>
                     <input type="text" id="author" name="author" required>
+                    <span class="author-error error-message" aria-live="polite"></span>
                 </div>
                 <div>
                     <label for="pages">Pages</label>
                     <input type="number" id="pages" name="pages" required>
+                    <span class="pages-error error-message" aria-live="polite"></span>
                 </div>
                 <div>
                     <label class="checkbox-label" for="readStatus">Read</label>

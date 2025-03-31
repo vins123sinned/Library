@@ -45,11 +45,11 @@ dialog h1 {
     margin-bottom: 0.5rem;
 }
 
-.inputs-section input:not(.checkbox-input) {
+.inputs-section input:not(.checkbox-input),
+.error-message {
     text-align: center;
     width: 50%;
     padding: 0.25rem;
-    margin-bottom: 1rem;
 }
 
 .checkbox-input {
@@ -117,4 +117,31 @@ tbody tr:nth-child(odd) {
     display: block;
     width: 10rem;
     margin: 0 auto;
+}
+
+.input-error,
+.input-error:focus-visible {
+    border-radius: 5px 5px 0 0;
+}
+
+.input-error:focus-visible {
+    outline: none;
+}
+
+.input-error:invalid {
+    border: 1px solid #000;
+    background-color: #f8bdc3;
+}
+
+.error-message {
+    display: block;
+    font-size: 80%;
+    color: #fff;
+    border-radius: 0 0 5px 5px;
+    margin: 0 auto 1rem auto;
+}
+
+.error-active {
+    background-color: #D62839;
+    padding: 0.3rem;
 }

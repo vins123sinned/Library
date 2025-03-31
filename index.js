@@ -135,6 +135,16 @@ function hideModal() {
 function submitClicked(event) {
     event.preventDefault();
 
+    validateInput('title', '.title-error');
+    validateInput('author', '.author-error') ;
+    validateInput('pages', '.pages-error');
+    
+    if (!titleInput.checkValidity() ||
+        !authorInput.checkValidity() ||
+        !pagesInput.checkValidity()) {
+        return;
+    }
+
     const title = document.querySelector('#title');
     const author = document.querySelector('#author');
     const pages = document.querySelector('#pages');
@@ -164,6 +174,22 @@ function cancelClicked() {
     hideModal();
 }
 
+function validateInput(id, errorName) {
+    const input = document.getElementById(id);
+    const error = document.querySelector(errorName);
+    if (input.validity.valueMissing) {
+        error.textContent = `${id.charAt(0).toUpperCase() + id.slice(1)} must not be empty`;
+        error.classList.add('error-active');
+        input.classList.add('input-error');
+        return false;
+    } else {
+        error.textContent = '';
+        error.classList.remove('error-active');
+        input.classList.remove('input-error');
+        return true;
+    }
+}
+
 const tableBody = document.querySelector('tbody');
 const dialog = document.querySelector('.main-dialog');
 
@@ -187,6 +213,22 @@ cancelButton.addEventListener('click', cancelClicked);
 const form = document.querySelector('form');
 
 form.addEventListener('submit', submitClicked);
+
+const titleInput = document.getElementById('title');
+const authorInput = document.getElementById('author');
+const pagesInput = document.getElementById('pages');
+
+titleInput.addEventListener('input', () => {
+    validateInput('title', '.title-error');
+});
+
+authorInput.addEventListener('input', () => {
+    validateInput('author', '.author-error');
+});
+
+pagesInput.addEventListener('input', () => {
+    validateInput('pages', '.pages-error');
+});
 
 addBookToLibrary('Harry Potter and the Sorcerer\'s Stone', 'J. K. Rowling', 223, true);
 addBookToLibrary('The Hobbit', 'J.R.R. Tolkien', 295, false);
